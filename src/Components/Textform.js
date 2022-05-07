@@ -56,12 +56,12 @@ export default function Textform(props) {
                 <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
                 <button className="btn btn-primary mx-2" onClick={handleRemoveSpace}>Remove Extra Spaces</button>
             </div>
-            <div className="container">
-                <h2 style={{color: props.mode=== 'dark'?'white': 'black'}}>Your text summary</h2>
-                <p style={{color: props.mode=== 'dark'?'white': 'black'}} >{text.split(" ").length} words and {text.length} characters</p>
-                <p style={{color: props.mode=== 'dark'?'white': 'black'}}>{0.008*text.split(" ").length} mins read</p>
-                <h3 style={{color: props.mode=== 'dark'?'white': 'black'}}>Preview</h3>
-                <p style={{color: props.mode=== 'dark'?'white': 'black'}}>{text}</p>
+            <div className="container" style={{color: props.mode=== 'dark'?'white': 'black'}}>
+                <h2>Your text summary</h2>
+                <p>{text.split(" ").filter((words)=>{return words.length !== 0;}).length} words and {text.length} characters</p>
+                <p>{0.008*text.split(" ").length} mins read</p>
+                <h3>Preview</h3>
+                <p>{text}</p>
             </div>
         </>
     )
